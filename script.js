@@ -10,7 +10,7 @@ const CONFIG = {
     
     // Admin credentials (demo only - trong production nên dùng backend authentication)
     ADMIN_USERNAME: 'admin',
-    ADMIN_PASSWORD: 'admin123',
+    ADMIN_PASSWORD: 'adminskillupVN@123',
     
     // Pagination
     BLOG_PER_PAGE: 6,
