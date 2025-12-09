@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SKILLUP CENTER - Trung tâm Phát triển Giáo dục Toàn diện cho Trẻ em. Đào tạo kỹ năng sống, tư duy sáng tạo, ngoại ngữ cho trẻ từ 3-15 tuổi.">
+    <meta name="keywords" content="giáo dục trẻ em, kỹ năng sống, tiếng Anh trẻ em, STEM, skillup center">
+    <title>SKILLUP CENTER - Trung tâm Giáo dục Toàn diện cho Trẻ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Đang tải dữ liệu...</p>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <nav class="navbar container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>SKILLUP CENTER</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Trang chủ</a></li>
+                <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+                <li><a href="#courses" class="nav-link">Khóa học</a></li>
+                <li><a href="#teachers" class="nav-link">Giáo viên</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#gallery" class="nav-link">Thư viện</a></li>
+                <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+                <li><a href="#" class="nav-link btn-login" id="btnLogin">Đăng nhập</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Đăng nhập Admin</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+            </form>
+            <p class="login-note">Demo: admin / admin123</p>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <div class="admin-header">
+            <h3><i class="fas fa-user-shield"></i> Admin Panel</h3>
+            <button class="btn btn-small" id="btnLogout">Đăng xuất</button>
+        </div>
+        <div class="admin-actions">
+            <button class="btn btn-small" onclick="window.open('https://docs.google.com/spreadsheets/', '_blank')">
+                <i class="fas fa-table"></i> Mở Google Sheets
+            </button>
+            <button class="btn btn-small" onclick="refreshData()">
+                <i class="fas fa-sync"></i> Làm mới dữ liệu
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: linear-gradient(rgba(37, 99, 235, 0.7), rgba(37, 99, 235, 0.8)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600');">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Phát triển Toàn diện<br>Tương lai Rực rỡ</h1>
+                        <p class="hero-subtitle">Đào tạo kỹ năng sống, tư duy sáng tạo và kiến thức vững chắc cho trẻ từ 3-15 tuổi</p>
+                        <div class="hero-buttons">
+                            <a href="#courses" class="btn btn-primary btn-large">Khám phá khóa học</a>
+                            <a href="#contact" class="btn btn-outline btn-large">Đăng ký tư vấn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(245, 158, 11, 0.7), rgba(245, 158, 11, 0.8)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600');">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Học tập Sáng tạo<br>Phương pháp Hiện đại</h1>
+                        <p class="hero-subtitle">Áp dụng giáo dục STEM, PBL và phương pháp Montessori cho trẻ</p>
+                        <div class="hero-buttons">
+                            <a href="#about" class="btn btn-primary btn-large">Tìm hiểu thêm</a>
+                            <a href="#contact" class="btn btn-outline btn-large">Liên hệ ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="hero-nav hero-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="hero-nav hero-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="hero-dots"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number" data-target="2500">0</div>
+                    <div class="stat-label">Học viên</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-book"></i></div>
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Khóa học</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="stat-number" data-target="35">0</div>
+                    <div class="stat-label">Giáo viên</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-award"></i></div>
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">% Hài lòng</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Về SKILLUP CENTER</h2>
+                <p class="section-subtitle">Hành trình phát triển giáo dục toàn diện cho trẻ em Việt Nam</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Tầm nhìn & Sứ mệnh</h3>
+                    <p>SKILLUP CENTER được thành lập với sứ mệnh mang đến cho trẻ em Việt Nam một nền giáo dục toàn diện, kết hợp giữa kiến thức học thuật vững chắc và kỹ năng sống thiết yếu trong thế kỷ 21.</p>
+                    <p>Chúng tôi tin rằng mỗi đứa trẻ đều có tiềm năng độc đáo cần được khơi dậy và phát triển theo cách riêng của mình. Với đội ngũ giáo viên tâm huyết và phương pháp giảng dạy hiện đại, chúng tôi cam kết tạo ra môi trường học tập an toàn, sáng tạo và đầy cảm hứng.</p>
+                    
+                    <h3>Giá trị cốt lõi</h3>
+                    <ul class="about-values">
+                        <li><i class="fas fa-check-circle"></i> <strong>Toàn diện:</strong> Phát triển cả trí tuệ, thể chất và cảm xúc</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Cá nhân hóa:</strong> Tôn trọng sự khác biệt của mỗi học viên</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Thực hành:</strong> Học qua trải nghiệm và dự án thực tế</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Sáng tạo:</strong> Khuyến khích tư duy độc lập và giải quyết vấn đề</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800" alt="SKILLUP CENTER" loading="lazy">
+                    <div class="about-badge">
+                        <i class="fas fa-award"></i>
+                        <span>Top 10<br>Trung tâm<br>Uy tín 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="section courses">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Chương trình Đào tạo</h2>
+                <p class="section-subtitle">Khóa học đa dạng phù hợp với mọi lứa tuổi</p>
+            </div>
+
+            <!-- Course Filters -->
+            <div class="course-filters">
+                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn" data-filter="3-6">3-6 tuổi</button>
+                <button class="filter-btn" data-filter="7-10">7-10 tuổi</button>
+                <button class="filter-btn" data-filter="11-15">11-15 tuổi</button>
+                <button class="filter-btn" data-filter="language">Ngoại ngữ</button>
+                <button class="filter-btn" data-filter="stem">STEM</button>
+                <button class="filter-btn" data-filter="skills">Kỹ năng sống</button>
+            </div>
+
+            <!-- Courses Grid -->
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Courses will be loaded dynamically -->
+                <div class="loading-placeholder">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Đang tải khóa học...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section id="teachers" class="section teachers">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Đội ngũ Giáo viên</h2>
+                <p class="section-subtitle">Chuyên gia giàu kinh nghiệm, tâm huyết với giáo dục</p>
+            </div>
+            <div class="teachers-grid" id="teachersGrid">
+                <!-- Teachers will be loaded dynamically -->
+                <div class="loading-placeholder">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Đang tải thông tin giáo viên...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section blog">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Blog Giáo dục</h2>
+                <p class="section-subtitle">Chia sẻ kiến thức và kinh nghiệm nuôi dạy con</p>
+            </div>
+
+            <!-- Blog Search -->
+            <div class="blog-search">
+                <input type="text" id="blogSearch" placeholder="Tìm kiếm bài viết...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts will be loaded dynamically -->
+                <div class="loading-placeholder">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Đang tải bài viết...</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="blogPagination"></div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Thư viện Hình ảnh</h2>
+                <p class="section-subtitle">Những khoảnh khắc đáng nhớ tại SKILLUP CENTER</p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery images will be loaded dynamically -->
+                <div class="loading-placeholder">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Đang tải hình ảnh...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Liên hệ & Đăng ký</h2>
+                <p class="section-subtitle">Để lại thông tin để được tư vấn miễn phí</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Thông tin liên hệ</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Địa chỉ</strong>
+                            <p>123 Đường Nguyễn Văn Cừ, Quận 5, TP.HCM</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Hotline</strong>
+                            <p>0901 234 567 - 028 3838 9999</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f4979b9a80959780b4879f9d9898818497919a809186da919081da829a">[email&#160;protected]</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Giờ làm việc</strong>
+                            <p>T2-T7: 8:00 - 20:00<br>CN: 8:00 - 17:00</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6297845004493!2d106.68093817570495!3d10.762622489375437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f38f9ed887b%3A0x14aded5703768989!2zUXXhuq1uIDUsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1703000000000!5m2!1svi!2s" 
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form">
+                        <h3>Đăng ký tư vấn</h3>
+                        <div class="form-group">
+                            <label for="parentName">Họ tên phụ huynh *</label>
+                            <input type="text" id="parentName" name="parentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại *</label>
+                            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,11}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="childAge">Độ tuổi con</label>
+                            <select id="childAge" name="childAge">
+                                <option value="">-- Chọn độ tuổi --</option>
+                                <option value="3-6">3-6 tuổi</option>
+                                <option value="7-10">7-10 tuổi</option>
+                                <option value="11-15">11-15 tuổi</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interestedCourse">Khóa học quan tâm</label>
+                            <select id="interestedCourse" name="interestedCourse">
+                                <option value="">-- Chọn khóa học --</option>
+                                <!-- Will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Lời nhắn</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Gửi đăng ký
+                        </button>
+                    </form>
+                    <div id="formSuccess" class="form-message success" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Đăng ký thành công!</h4>
+                        <p>Cảm ơn bạn đã quan tâm đến SKILLUP CENTER. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.</p>
+                    </div>
+                    <div id="formError" class="form-message error" style="display: none;">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h4>Có lỗi xảy ra!</h4>
+                        <p>Vui lòng thử lại sau hoặc liên hệ trực tiếp qua hotline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3><i class="fas fa-graduation-cap"></i> SKILLUP CENTER</h3>
+                    <p>Trung tâm Phát triển Giáo dục Toàn diện cho Trẻ em</p>
+                    <p class="footer-slogan">"Mỗi đứa trẻ đều có tài năng riêng, nhiệm vụ của chúng tôi là giúp các em khám phá và phát triển nó"</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#about">Giới thiệu</a></li>
+                        <li><a href="#courses">Khóa học</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Chính sách</h4>
+                    <ul>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Quy định chung</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Theo dõi chúng tôi</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="margin-top: 1rem;">Hotline: <strong>0901 234 567</strong></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SKILLUP CENTER. All rights reserved. Developed with <i class="fas fa-heart"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Course Detail Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" id="closeCourseModal">&times;</span>
+            <div id="courseModalContent">
+                <!-- Course detail will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Detail Modal -->
+    <div id="blogModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" id="closeBlogModal">&times;</span>
+            <div id="blogModalContent">
+                <!-- Blog detail will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Lightbox -->
+    <div id="galleryLightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <button class="lightbox-nav lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav lightbox-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-caption"></div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+</body>
+</html>
