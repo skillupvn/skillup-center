@@ -7,7 +7,7 @@
 const CONFIG = {
     API_BASE_URL: 'https://script.google.com/macros/s/AKfycbxmH0_T2B1aOJBpqPa3EL_WgaC2murCMzVm6aJN86iBH6d7Pv1rGPyN1cq0Woy19bM/exec',
     ADMIN_USERNAME: 'admin',
-    ADMIN_PASSWORD: 'adminskillupVN@123',
+    ADMIN_PASSWORD: 'skillupVN@123',
     BLOG_PER_PAGE: 6,
     HERO_SLIDE_DELAY: 5000,
     STATS_ANIMATION_DURATION: 2000
